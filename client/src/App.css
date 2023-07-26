@@ -1,0 +1,41 @@
+.contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgba(221, 221, 223, 0.527);
+}
+
+.imagen1 {
+/* width: 800px; */
+/* height: 200px; */
+padding: 15px;
+flex: 1;
+margin: 10px;
+min-width: 300px;
+}
+
+.imagen2 {
+  /* width: 800px; */
+  /* height: 200px; */
+  padding: 15px;
+  flex: 2;
+  margin: 10px;
+  min-width: 300px;
+}
+
+.imagen3 {
+  /* width: 800px; */
+  /* height: 200px; */
+  padding: 15px;
+  flex: 3;
+  margin: 10px;
+  min-width: 300px;
+}
+
+.imagen4 {
+  /* width: 800px; */
+  /* height: 200px; */
+  padding: 15px;
+  flex: 4;
+  margin: 10px;
+  min-width: 300px;
+}
