@@ -35,9 +35,10 @@ export const getAllVideogamesFromApi = () => {
     `${API}games?${API_KEY}&page=5`
   ]
   const getFirst100Games = urlsApi.map(url => {
-    return fetch(url)
+    const promise = fetch(url)
       .then(response => response.json())
       .then(data => data.results)
+    return promise
   })
   const result = Promise.all(getFirst100Games)
     .then(data => {
