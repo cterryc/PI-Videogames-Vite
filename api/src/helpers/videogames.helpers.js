@@ -1,6 +1,7 @@
 import { Op } from 'sequelize'
 import Genres from '../models/genres.models.js'
 import Videogames from '../models/videgames.models.js'
+import fetch from 'node-fetch'
 
 const { API, API_KEY } = process.env
 

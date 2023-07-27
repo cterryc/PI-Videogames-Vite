@@ -1,4 +1,5 @@
 import Genres from '../models/genres.models.js'
+import fetch from 'node-fetch'
 
 const { API_KEY, API } = process.env
 
