@@ -1,0 +1,22 @@
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.bubbles {
+  position: relative;
+  display: flex;
+}
+
+.bubbles span {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background: #fd5d1d;
+  margin: 0px 4px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 10px #ffc3c3, 0 0 50px #fd5d1d, 0 0 100px #fd5d1d;
+  animation: animate 15s linear;
+}

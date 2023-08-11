@@ -1,0 +1,45 @@
+.filterContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-right: 5px;
+  /* width: 80%; */
+}
+
+.filter {
+  outline: none;
+  border: none;
+  background-color: rgb(228, 228, 228);
+  width: 150px;
+  height: 30px;
+  text-align: center;
+  appearance: none;
+  font-size: 15px;
+  font-family: sans-serif;
+  border-radius: 5px;
+  padding-right: 20px;
+  cursor: pointer;
+}
+
+.filter option {
+  border: none;
+  /* font-size: 25px; */
+  background: #343863;
+  color: antiquewhite;
+  border: 2px solid red;
+  /* width: 100px; */
+}
+
+.filterArrow {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 0;
+  pointer-events: none;
+  height: 100%;
+  width: 30px;
+  background: rgb(255, 105, 59);
+  border-radius: 0px 5px 5px 0px;
+}

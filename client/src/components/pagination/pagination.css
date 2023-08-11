@@ -1,0 +1,32 @@
+.containerPagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.containerButtons {
+  display: flex;
+  justify-content: space-between;
+  width: 25%;
+  margin: 30px 0px;
+}
+
+.buttonsPagination {
+  height: 35px;
+  width: 35px;
+  border-radius: 5px;
+  border: none;
+  font-size: 18px;
+  background: -webkit-linear-gradient(-45deg, #b9c3c9 0%, #b9c3c9 34%, #FFFFFF 60%, #FFFFFF 100%);
+  cursor: pointer;
+}
+
+.buttonsPagination:active {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.buttonsPagination:hover {
+  background: -webkit-linear-gradient(-45deg, #786C6C 0%, #B8B8B8 34%, #786C6C 60%, #B8B8B8 100%);
+}

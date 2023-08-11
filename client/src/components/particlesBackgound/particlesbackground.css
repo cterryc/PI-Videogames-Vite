@@ -1,0 +1,5 @@
+canvas{
+  max-width: 50%;/*puede ser el tamaño que tu quieras*/
+  /* max-height: 50%; */
+  /* margin-top: 30%; <== con esto puedo definir la posicion de las particulas */
+}

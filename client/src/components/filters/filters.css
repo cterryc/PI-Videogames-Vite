@@ -1,0 +1,45 @@
+.containerAllFilters {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  /* background: -webkit-linear-gradient(-45deg, #b9c3c9 0%, #FFFFFF 6%, #b9c3c9 34%, #FFFFFF 60%, #b9c3c9 81%, #FFFFFF 100%); */
+  /* border-radius: 10px; */
+  padding: 15px 0%;
+  /* margin: 25px 0%; */
+}
+
+.divSearchBar {
+  flex: 1;
+  /* width: 35%; */
+  /* margin-left: 2%; */
+  /* padding-right: 5%; */
+  margin-right: 7%;
+}
+
+.containerFilters {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  /* margin-right: 2%; */
+}
+
+.buttonFilter {
+  width: 120px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: sans-serif;
+  color: #343863;
+}
+
+.buttonFilter:active {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
