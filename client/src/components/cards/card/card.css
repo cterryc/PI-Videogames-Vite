@@ -1,7 +1,15 @@
-.card {
+.cardBackgound {
   height: 300px;
   width: 250px;
   margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  transition: transform 0.4s ease;
+}
+
+.card {
+  height: 300px;
+  width: 240px;
   background: -webkit-linear-gradient(-45deg, #b9c3c9 0%, #FFFFFF 6%, #b9c3c9 34%, #FFFFFF 60%, #b9c3c9 81%, #FFFFFF 100%);
 
   border-radius: 10px;
@@ -15,12 +23,14 @@
   text-align: center;
   cursor: pointer;
   background: transparent;
-  transition: background 0.4s ease, color 0.4s ease, opacity 0.4s ease;
+  transition: background 0.4s ease, color 0.4s ease, opacity 0.4s ease, top 0.4s ease, box-shadow 0.4s ease;
   color: #343863;
-  height: 93%;
+  height: 93.2%;
   padding-bottom: 8.3%;
-  font-family: sans-serif;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bold;
   border-radius: 10px;
+  font-size: 17px;
 }
 
 .imgCard {
@@ -35,6 +45,13 @@
   background: #777777;
   opacity: 0.7;
   color: rgb(255, 255, 255);
+  box-shadow: 2px 2px 10px hsl(0, 0%, 0%, 0.7);
+
+}
+
+.cardBackgound:hover {
+  transform: translateY(-10px);
+  
 }
 
 /* .imgCard:hover {

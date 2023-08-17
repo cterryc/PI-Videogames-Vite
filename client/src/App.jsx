@@ -11,15 +11,21 @@ function App () {
   const location = useLocation()
   // console.log(location)
   return (
-    <div>
-      {location.pathname !== '/' && <NavBar />}
+    <div className='app'>
       <Routes>
-        <Route path='' element={<Landing />} />
-        <Route path='home' element={<Home />} />
-        <Route path='creategame' element={<CreateGame />} />
-        <Route path='about' element={<About />} />
-        <Route path='*' element={<ErrorPage />} />
+        <Route path='/' element={<Landing />} />
       </Routes>
+      <div className='containerRoutesApp'>
+        {location.pathname !== '/' && <NavBar />}
+      </div>
+      <div className='containerRoutesApp'>
+        <Routes>
+          <Route path='home' element={<Home />} />
+          <Route path='creategame' element={<CreateGame />} />
+          <Route path='about' element={<About />} />
+          <Route path='*' element={<ErrorPage />} />
+        </Routes>
+      </div>
     </div>
   )
 }
