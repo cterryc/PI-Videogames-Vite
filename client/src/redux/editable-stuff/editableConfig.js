@@ -1,3 +1,5 @@
 export const API = 'https://anxious-hen-panama-hat.cyclic.app'
 
-export const imagenDeRespaldo = 'https://c.wallhere.com/photos/e4/13/World_of_Warcraft_Chenbo_elves_fantasy_art_video_games_digital_art_Night_Elves-357408.jpg!d'
+export const imagenDeRespaldo = 'https://w0.peakpx.com/wallpaper/419/206/HD-wallpaper-warcraft-darck-elf-elf.jpg'
+
+export const urlMedia = 'https://media.rawg.io/media/crop/600/400/games'
