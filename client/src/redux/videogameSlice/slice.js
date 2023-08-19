@@ -8,7 +8,8 @@ const initialState = {
   searchGames: [],
   searchpagestate: false,
   filterState: [],
-  gameDetails: {}
+  gameDetails: {},
+  screenShots: []
 }
 
 export const fetchVideogames = createAsyncThunk('videogames/fetchVideogames',
@@ -19,14 +20,32 @@ export const fetchVideogames = createAsyncThunk('videogames/fetchVideogames',
       return data
     }
     return initialState.videogamesFromApi
-  })
+  }
+)
 
 export const fetchGenres = createAsyncThunk('videogames/fetchGenres',
   async (allGames, thunkAPI) => {
     const response = await fetch(`${API}/genres`)
     const data = await response.json()
     return data
-  })
+  }
+)
+
+export const fetchId = createAsyncThunk('videogames/fetchId',
+  async (id, thunkAPI) => {
+    const response = await fetch(`${API}/videogame/${id}`)
+    const data = await response.json()
+    return data
+  }
+)
+
+export const fetchScreenShots = createAsyncThunk('videogames/fetchScreenShots',
+  async (id, thunkAPI) => {
+    const response = await fetch(`${API}/screenshots/${id}`)
+    const data = await response.json()
+    return data
+  }
+)
 
 export const videogamesSlice = createSlice({
   name: 'videogame',
@@ -69,6 +88,12 @@ export const videogamesSlice = createSlice({
       })
       .addCase(fetchGenres.rejected, (state, action) => {
         state.genres = action.error.message
+      })
+      .addCase(fetchId.fulfilled, (state, action) => {
+        state.gameDetails = action.payload
+      })
+      .addCase(fetchScreenShots.fulfilled, (state, action) => {
+        state.screenShots = action.payload
       })
   }
 })

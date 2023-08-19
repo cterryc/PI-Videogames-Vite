@@ -1,5 +1,6 @@
 import { imagenDeRespaldo, urlMedia } from '../../../redux/editable-stuff/editableConfig'
 import './card.css'
+import { Link } from 'react-router-dom'
 
 const Card = ({ game }) => {
   // console.log(game)
@@ -26,7 +27,7 @@ const Card = ({ game }) => {
 
   return (
     <div className='cardBackgound'>
-      <div className='card'>
+      <Link to={`${game.id}`} className='card'>
         <div className='cardContainer'>
           <img
             src={game.background_image ? finalUrl : imagenDeRespaldo}
@@ -38,7 +39,7 @@ const Card = ({ game }) => {
           <span>⭐{game.rating}</span>
           <span>{genres.join(', ')}</span>
         </div>
-      </div>
+      </Link>
     </div>
   )
 }

@@ -14,7 +14,6 @@ const FormLogin = () => {
 
   const handleOnSubmit = (e) => {
     e.preventDefault()
-    console.log('entro al submit')
     if (data.Username === '' && data.Password === '') {
       setWarningUsername(true)
       setWarningPassword(true)

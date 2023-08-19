@@ -24,5 +24,6 @@ export const videogameById = (id) => {
   return dataBaseOrApi
 
   // es necesario encerrar "await fetch()" entre parentesis, para poder aplicar "json.()"
-  // const gameFromApi = (await fetch(`${API}games/${id}?${API_KEY}`)).json()
+  // recordar que me devuelve una promesa y si no quiero la promesa usar ".then()"
+  // ! const gameFromApi = (await fetch(`${API}games/${id}?${API_KEY}`)).json()
 }

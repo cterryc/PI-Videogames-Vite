@@ -27,7 +27,6 @@ const Pagination = () => {
     setCurrentPage(pageNumber)
   }
 
-  console.log(currentGames)
   // const abc = ''
   return (
     <div className='containerPagination'>

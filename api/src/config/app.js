@@ -3,8 +3,9 @@ import morgan from 'morgan'
 import cors from 'cors'
 // importar las rutas aqui abajo
 import genres from '../routes/genres.routes.js'
-import videogames from '../routes/videogames.routes.js'
+import screenShots from '../routes/screenshots.routes.js'
 import videogame from '../routes/videogame.routes.js'
+import videogames from '../routes/videogames.routes.js'
 // importar las rutas arriba.
 
 const SERVER = express()
@@ -25,8 +26,9 @@ SERVER.use((req, res, next) => {
 
 // Usar rutas importadas aqui abajo:
 SERVER.use('/genres', genres)
-SERVER.use('/videogames', videogames)
+SERVER.use('/screenshots', screenShots)
 SERVER.use('/videogame', videogame)
+SERVER.use('/videogames', videogames)
 // Usar rutas importadas arriba:.
 
 // Captura de Errores
