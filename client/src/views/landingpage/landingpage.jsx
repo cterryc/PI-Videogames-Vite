@@ -22,7 +22,7 @@ const Landing = () => {
     <div className='fullFormContainer'>
       <div className='half1'>
         <ParticlesBackGround /> {/* no importa donde coloque este componente, igual ocupa toda la pantalla a menos q le otorgue un max-with */}
-        <Link to='/home' className='buttonContainer'>
+        <Link to='/home/1' className='buttonContainer'>
           <Buttons name='Guest' />
         </Link>
       </div>

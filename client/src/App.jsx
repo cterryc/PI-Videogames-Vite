@@ -19,8 +19,8 @@ function App () {
       <div className='containerRoutesApp'>
         <Routes>
           <Route path='/' element={<Landing />} />
-          <Route path='home' element={<Home />} />
-          <Route path='home/:id' element={<Details />} />
+          <Route path='/home/:page' element={<Home />} />
+          <Route path='details/:id' element={<Details />} />
           <Route path='creategame' element={<CreateGame />} />
           <Route path='about' element={<About />} />
           <Route path='*' element={<ErrorPage />} />

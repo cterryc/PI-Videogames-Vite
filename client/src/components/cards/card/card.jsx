@@ -8,8 +8,7 @@ const Card = ({ game }) => {
   game.genres.forEach(ele => {
     if (genres.length < 2) {
       genres.push(ele.name)
-    }
-    if (genres.length === 2) {
+    } else if (genres.length === 2) {
       genres.push('...')
     }
   })
@@ -27,7 +26,7 @@ const Card = ({ game }) => {
 
   return (
     <div className='cardBackgound'>
-      <Link to={`${game.id}`} className='card'>
+      <Link to={`/details/${game.id}`} className='card'>
         <div className='cardContainer'>
           <img
             src={game.background_image ? finalUrl : imagenDeRespaldo}

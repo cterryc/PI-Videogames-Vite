@@ -7,12 +7,12 @@ const NavBar = () => {
   return (
     <div className='navbarContainer'>
       <div className='navbar'>
-        <Link to='/home' className='navLinkLogo'>
+        <Link to='/home/1' className='navLinkLogo'>
           <h2 className='divIntoNavLink'>{'< TerryDev />'}</h2>
         </Link>
         {/* <SearchBar /> */}
         <div className='containerFourLinks'>
-          <NavLink to='/home' className='navLink'>
+          <NavLink to='/home/1' className='navLink'>
             <div className='divIntoNavLink'>VIDEOGAMES</div>
           </NavLink>
           <NavLink to='/creategame' className='navLink'>

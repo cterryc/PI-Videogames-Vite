@@ -1,18 +1,67 @@
+.pageDetailsContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.backButtonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.goBackButton {
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  width: 80px;
+}
+
+.goBackButton:hover {
+  background-color: #343863;
+  color: rgb(228, 228, 228);
+}
+
 .detailsContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 60px;
   max-width: 1250px;
   width: 100%;
   padding: 0px 50px;
+  background: #ffffff5e;
   min-height: 80vh;
-  /* background: transparent; */
-  /* background-image: linear-gradient(to bottom, rgba(41, 41, 41, 0.8), rgba(43, 43, 51, 0.5)), url("https://media.rawg.io/media/games/562/562553814dd54e001a541e4ee83a591c.jpg"); */
+  margin-top: 5vh;
+  border-radius: 10px;
+  transition: opacity 0.4s;
+}
+
+.detailsContainerTransparent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1250px;
+  width: 100%;
+  padding: 0px 50px;
+  background: #ffffff5e;
+  min-height: 80vh;
+  margin-top: 5vh;
+  border-radius: 10px;
+  transition: opacity 0.4s;
+  opacity: 0.5;
 }
 
 .detailsTextContainer {
   flex: 1;
+  /* background: #ffffff5e; */
+  padding-left: 20px;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 5px;
 }
 
 .detailsH1 {
@@ -23,21 +72,53 @@
 }
 
 .detailsDescription {
-  font-size: 20px;
+  font-size: 16px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   color: #1b1d30;
+  /* transition: all 0.4s ease; */
+}
+
+.detailsDescription2 {
+  font-size: 16px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: #1b1d30;
+  /* transition: all 0.4s ease; */
 }
 
 .detailsSpanContainer {
   display: flex;
-  justify-content: space-between;
-  margin-right: 100px;
+  justify-content: space-around;
+  /* margin-right: 100px; */
+  margin: 20px 0px;
+  background-color: #792f2f44;
+  border: 2px solid #2c305744;
+  border-radius: 5px;
+  height: 30px;
+}
+
+.spanDates {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.iconosDetails {
+  display: flex;
+  align-items: center;
 }
 
 .detailsHr {
   border: none;
   width: 35px;
   height: 70vh;
+}
+
+.detailsImagesContainer {
+  height: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: space-between;
 }
 
 .detailsImageContainer {
@@ -47,11 +128,27 @@
   flex-wrap: wrap;
   height: 80%;
   justify-content: space-around;
-  align-items: start;
+  align-items: center;
+  height: 600px;
+  /* align-items: start; */
 }
 
+.readMoreButton {
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  height: 16px;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+.readMoreButton:hover {
+  background: #343863;
+  color: #fff;
+}
+
+
 .detailsImage {
-  margin-top: 60px;
+  /* margin-top: 60px; */
   border-radius: 5px;
 }
 
@@ -67,12 +164,89 @@
   left: 0;
   width: 100%;
   height: 94.2%;
-  opacity: 0.3; /* Ajusta la opacidad según tus preferencias */
+  opacity: 0.3;
+  /* Ajusta la opacidad según tus preferencias */
   z-index: -1;
   padding-top: 60px;
 }
 
+.detailsPositionAbsolute {
+  display: flex;
+  position: absolute;
+  /* justify-content: space-between; */
+  /* align-items: center; */
+  flex-direction: column;
+  background: #000000b2;
+  width: 600px;
+  padding: 30px 50px;
+  border-radius: 10px;
+  color: rgb(224, 224, 224);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 18px;
+  margin-top: 5vh;
+  animation: growAnimation 0.4s ease-in-out;
+}
 
+@keyframes growAnimation {
+  from {
+    transform: translateX(35%) scale(0.3);
+  }
+  to {
+    transform: translateX(0) scale(1);
+  }
+}
+
+
+/* ================= Loader ======================= */
+.loadingContainer {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+}
+
+.lds-facebook {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-facebook div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: #fff;
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+
+.lds-facebook div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+
+.lds-facebook div:nth-child(2) {
+  left: 32px;
+  animation-delay: -0.12s;
+}
+
+.lds-facebook div:nth-child(3) {
+  left: 56px;
+  animation-delay: 0;
+}
+
+@keyframes lds-facebook {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+
+  50%,
+  100% {
+    top: 24px;
+    height: 32px;
+  }
+}
 
 /* @media (min-width: 1250px) {
   .detailsContainer {

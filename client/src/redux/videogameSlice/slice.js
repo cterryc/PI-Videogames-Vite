@@ -89,7 +89,11 @@ export const videogamesSlice = createSlice({
       .addCase(fetchGenres.rejected, (state, action) => {
         state.genres = action.error.message
       })
+      .addCase(fetchId.pending, (state) => {
+        state.searchpagestate = true
+      })
       .addCase(fetchId.fulfilled, (state, action) => {
+        state.searchpagestate = false
         state.gameDetails = action.payload
       })
       .addCase(fetchScreenShots.fulfilled, (state, action) => {

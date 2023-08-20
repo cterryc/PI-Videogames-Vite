@@ -11,7 +11,7 @@
   height: 300px;
   width: 240px;
   background: -webkit-linear-gradient(-45deg, #b9c3c9 0%, #FFFFFF 6%, #b9c3c9 34%, #FFFFFF 60%, #b9c3c9 81%, #FFFFFF 100%);
-
+  text-decoration: none;
   border-radius: 10px;
 }
 

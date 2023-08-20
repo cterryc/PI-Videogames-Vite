@@ -1,13 +1,26 @@
 import { useSelector } from 'react-redux'
 import Cards from '../cards/cards'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './pagination.css'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 
 const itemsPerPage = 15
 
 const Pagination = () => {
   const allGames = useSelector((state) => state.videogame.videogamesFromApi)
-  const [currentPage, setCurrentPage] = useState(1)
+  const { page } = useParams()
+  const [currentPage, setCurrentPage] = useState(page || 1)
+  const location = useLocation()
+  const navigate = useNavigate()
+  console.log(location)
+  console.log(page)
+
+  useEffect(() => {
+    navigate(`/home/${currentPage}`)
+  }, [currentPage])
+  useEffect(() => {
+    setCurrentPage(page)
+  }, [page])
 
   // me devuelve el indice del ultimo juego que puede ser 15, 30, 45 ...etc. de 15 en 15
   const indexOfLastItem = currentPage * itemsPerPage
