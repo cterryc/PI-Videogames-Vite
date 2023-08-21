@@ -3,6 +3,8 @@ import Cards from '../cards/cards'
 import { useEffect, useState } from 'react'
 import './pagination.css'
 import { useNavigate, useParams } from 'react-router-dom'
+import ArrowLeft from '../../assets/arrow-left'
+import ArrowRight from '../../assets/arrow-right'
 
 const itemsPerPage = 15
 
@@ -15,9 +17,6 @@ const Pagination = () => {
   useEffect(() => {
     navigate(`/home/${currentPage}`)
   }, [currentPage])
-  useEffect(() => {
-    setCurrentPage(page)
-  }, [page])
 
   // me devuelve el indice del ultimo juego que puede ser 15, 30, 45 ...etc. de 15 en 15
   const indexOfLastItem = currentPage * itemsPerPage
@@ -37,30 +36,65 @@ const Pagination = () => {
     console.log(e.target.id)
     setCurrentPage(pageNumber)
   }
+  console.log(currentPage)
 
   return (
     <div className='containerPagination'>
       <div className='containerButtons'>
+        <button
+          className={currentPage < '2' ? 'buttonsPaginationActive' : 'buttonsPagination'}
+          onClick={() => setCurrentPage(currentPage - 1)}
+          disabled={currentPage < '2'}
+        >
+          <ArrowLeft />
+        </button>
         {Array.from({ length: totalPages }, (_, index) => {
           return (
             <button
               key={index}
               onClick={(e) => handlePageChange(index + 1, e)}
-              className='buttonsPagination'
+              className={Number(currentPage) === index + 1 ? 'buttonsPaginationActive' : 'buttonsPagination'}
               id={index + 1}
+              disabled={Number(currentPage) === index + 1}
             >
               {index + 1}
             </button>
           )
         })}
+        <button
+          className={currentPage > '6' ? 'buttonsPaginationActive' : 'buttonsPagination'}
+          onClick={() => setCurrentPage(Number(currentPage) + 1)}
+          disabled={currentPage > '6'}
+        >
+          <ArrowRight />
+        </button>
       </div>
       <Cards games={currentGames} />
       <div className='containerButtons'>
+        <button
+          className={currentPage < '2' ? 'buttonsPaginationActive' : 'buttonsPagination'}
+          onClick={() => setCurrentPage(currentPage - 1)}
+          disabled={currentPage < '2'}
+        >
+          <ArrowLeft />
+        </button>
         {Array.from({ length: totalPages }, (_, index) => (
-          <button key={index} onClick={() => handlePageChange(index + 1)} className='buttonsPagination'>
+          <button
+            key={index}
+            onClick={(e) => handlePageChange(index + 1, e)}
+            className={Number(currentPage) === index + 1 ? 'buttonsPaginationActive' : 'buttonsPagination'}
+            disabled={Number(currentPage) === index + 1}
+          >
             {index + 1}
           </button>
         ))}
+        <button
+          className={currentPage > '6' ? 'buttonsPaginationActive' : 'buttonsPagination'}
+          onClick={() => setCurrentPage(Number(currentPage) + 1)}
+          disabled={currentPage > '6'}
+        >
+          <ArrowRight />
+        </button>
       </div>
     </div>
   )
