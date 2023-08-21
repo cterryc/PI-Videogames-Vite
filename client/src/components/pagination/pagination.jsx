@@ -31,8 +31,9 @@ const Pagination = () => {
   // me devuelve un array con los "juegos" que quiero mostrar en la pagina actual
   // indexOfFirstItem y indexOfLastItem tomaran valores como => (0, 15) ó (15, 30) ó (30, 45)
   const currentGames = allGames.slice(indexOfFirstItem, indexOfLastItem)
+  console.log(currentGames)
 
-  // me devuelve el numero total de paginas que necesito
+  // me devuelve el numero total de botones que necesito
   const totalPages = Math.ceil(allGames.length / itemsPerPage)
 
   // cuando cambie de pagina, me actualizo el estado de la pagina actual
