@@ -23,8 +23,19 @@
   cursor: pointer;
 }
 
+.buttonsPaginationActive {
+  height: 35px;
+  width: 35px;
+  border-radius: 5px;
+  border: none;
+  font-size: 18px;
+  background: black;
+  cursor: pointer;
+}
+
 .buttonsPagination:active {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px #0000004d;
+  background: #0000004d;
 }
 
 .buttonsPagination:hover {

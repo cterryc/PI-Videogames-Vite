@@ -19,14 +19,15 @@ const Platforms = (props) => {
     sega: <Sega />,
     playstation: <Sony />,
     pc: <Windows />,
-    xbox: <Xbox />
+    xbox: <Xbox />,
+    mac: <Apple />
   }
   return (
     <>
       {
         props.platforms?.map(ele => {
           return (
-            <div key={ele.platform.id} className='platformsContainer'>
+            <div key={ele.platform.id} className='iconosDetails'>
               {genres[ele.platform.slug]}
             </div>
           )

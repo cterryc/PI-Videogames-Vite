@@ -4,20 +4,10 @@ import FormLogin from '../../components/form/form'
 // import coworking from '../../assets/co-working.svg'
 import './landingpage.css'
 import ParticlesBackGround from '../../components/particlesBackgound/particlesbackground'
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchVideogames } from '../../redux/videogameSlice/slice'
 
 const Landing = () => {
   // llamo al stado global para saber si existe algo dentro
-  const allGames = useSelector(state => state.videogame)
-  const dispatch = useDispatch()
-  useEffect(() => {
-    // sino existe nada en el estado global "state.videogame.videogamesFromApi" realizo una petición.
-    if (!allGames.videogamesFromApi.length) {
-      dispatch(fetchVideogames())
-    }
-  }, [])
+
   return (
     <div className='fullFormContainer'>
       <div className='half1'>

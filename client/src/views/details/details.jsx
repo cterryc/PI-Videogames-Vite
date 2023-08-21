@@ -17,7 +17,7 @@ const Details = () => {
     dispatch(fetchId(id))
     dispatch(fetchScreenShots(id))
   }, [])
-
+  console.log(gameDetails)
   let description
   if (gameDetails.description) {
     if (gameDetails.description.length > 1000) {
@@ -50,8 +50,14 @@ const Details = () => {
         <div className='lds-facebook'><div /><div /><div /></div>
       </div>
     )
+  } else if (gameDetails.error) {
+    return (
+      <div className='gameNotFound'>
+        <h1>{gameDetails.error}</h1>
+        <button className='goBackButtonError' onClick={goBack}>Go Back</button>
+      </div>
+    )
   }
-
   return (
     <div className='pageDetailsContainer'>
 
@@ -86,8 +92,6 @@ const Details = () => {
             <span className='spanDates'>⭐ {gameDetails.rating}</span>
           </div>
           <h1 className='detailsH1'>{gameDetails.name}</h1>
-          {/* <span>{gameDetails.description}</span> */}
-          {/* el span de abajo es para dar uso de las etiquetas html provenientes de la API */}
           <div>
             <span
               className='detailsDescription'

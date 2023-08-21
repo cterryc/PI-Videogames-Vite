@@ -1,3 +1,26 @@
+.gameNotFound {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 80vh;
+  color: #343863;
+}
+
+.goBackButtonError {
+  height: 40px;
+  font-size: 20px;
+  width: 120px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: -webkit-linear-gradient(-45deg, #b9c3c9 0%, #FFFFFF 6%, #b9c3c9 34%, #FFFFFF 60%, #b9c3c9 81%, #FFFFFF 100%);
+}
+
+.goBackButtonError:hover {
+  background: #343863;
+}
+
 .pageDetailsContainer {
   display: flex;
   justify-content: center;
@@ -101,6 +124,7 @@
 .iconosDetails {
   display: flex;
   align-items: center;
+  margin: 0px 3px;
 }
 
 .detailsHr {

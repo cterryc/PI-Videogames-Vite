@@ -6,8 +6,8 @@ const ErrorPage = () => {
   const navigate = useNavigate()
   useEffect(() => {
     setTimeout(() => {
-      return navigate('home/1')
-    }, 2000)
+      return navigate('/home/1')
+    }, 1000)
   }, [])
   return (
     <div className='errorPage'>
