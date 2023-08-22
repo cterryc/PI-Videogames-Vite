@@ -5,7 +5,7 @@ export const getVideogameById = async (req, res, next) => {
   try {
     const gameDetails = await videogameById(id)
     if (gameDetails.detail) {
-      return res.status(404).send({ error: 'Game not found' })
+      return res.status(404).send({ error: 'Details game don`t exist' })
     }
     res.status(200).send(gameDetails)
   } catch (error) {

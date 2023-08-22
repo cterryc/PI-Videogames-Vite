@@ -6,7 +6,7 @@ import fetch from 'node-fetch'
 const { API, API_KEY } = process.env
 
 export const getVideogamesFromApiByName = (name) => {
-  const videogamesFromApi = fetch(`${API}games?${API_KEY}&search=${name}`)
+  const videogamesFromApi = fetch(`${API}games?${API_KEY}&search=${name}&page_size=15`)
     .then(response => response.json())
     .then(data => data.results)
   return videogamesFromApi
