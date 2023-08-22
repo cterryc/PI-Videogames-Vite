@@ -9,7 +9,8 @@ const initialState = {
   searchpagestate: false,
   filterState: [],
   gameDetails: {},
-  screenShots: []
+  screenShots: [],
+  actualSearch: ''
 }
 
 export const fetchVideogames = createAsyncThunk('videogames/fetchVideogames',
@@ -47,27 +48,23 @@ export const fetchScreenShots = createAsyncThunk('videogames/fetchScreenShots',
   }
 )
 
+export const fetchSearch = createAsyncThunk('videogames/fetchSearch',
+  async (search, thunkAPI) => {
+    const response = await fetch(`${API}/videogames?name=${search}`)
+    const data = await response.json()
+    return data
+  }
+)
+
 export const videogamesSlice = createSlice({
   name: 'videogame',
   initialState,
   reducers: {
-    getAllGames: (state, action) => {
+    addActualSearch: (state, action) => {
+      state.actualSearch = action.payload
+    },
+    addReplaceVideogamesFromApi: (state, action) => {
       state.videogamesFromApi = action.payload
-    },
-    getGenres: (state, action) => {
-      state.genres = action.payload
-    },
-    getPlatforms: (state, action) => {
-      state.platforms = action.payload
-    },
-    getSearchGames: (state, action) => {
-      state.searchGames = action.payload
-    },
-    getFilters: (state, action) => {
-      state.filterState = action.payload
-    },
-    getDetails: (state, action) => {
-      state.gameDetails = action.payload
     }
   },
   extraReducers: (builder) => {
@@ -99,8 +96,19 @@ export const videogamesSlice = createSlice({
       .addCase(fetchScreenShots.fulfilled, (state, action) => {
         state.screenShots = action.payload
       })
+      .addCase(fetchSearch.pending, (state) => {
+        state.searchpagestate = true
+      })
+      .addCase(fetchSearch.fulfilled, (state, action) => {
+        state.searchpagestate = false
+        state.searchGames = action.payload
+      })
+      .addCase(fetchSearch.rejected, (state, action) => {
+        state.searchpagestate = false
+        state.searchGames = action.error.message
+      })
   }
 })
 
-export const { getAllGames, getGenres, getPlatforms, getSearchGames, getFilters, getDetails } = videogamesSlice.actions
+export const { addActualSearch } = videogamesSlice.actions
 export default videogamesSlice.reducer

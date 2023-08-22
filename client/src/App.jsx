@@ -7,6 +7,7 @@ import About from './views/about/about'
 import NavBar from './views/navbar/navbar'
 import CreateGame from './views/Create-Game/create-game'
 import Details from './views/details/details'
+import SearchPage from './views/searchPage/searchPage'
 
 function App () {
   const location = useLocation()
@@ -20,6 +21,7 @@ function App () {
         <Routes>
           <Route path='/' element={<Landing />} />
           <Route path='/home/:page' element={<Home />} />
+          <Route path='/search/:nameGame' element={<SearchPage />} />
           <Route path='details/:id' element={<Details />} />
           <Route path='creategame' element={<CreateGame />} />
           <Route path='about' element={<About />} />

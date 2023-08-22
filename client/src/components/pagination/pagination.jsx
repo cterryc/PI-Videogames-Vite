@@ -33,10 +33,8 @@ const Pagination = () => {
 
   // cuando cambie de pagina, me actualizo el estado de la pagina actual
   const handlePageChange = (pageNumber, e) => {
-    console.log(e.target.id)
     setCurrentPage(pageNumber)
   }
-  console.log(currentPage)
 
   return (
     <div className='containerPagination'>

@@ -1,0 +1,22 @@
+.searchPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0px 50px;
+  width: 100%;
+}
+
+.searchPageLoading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0px 50px;
+  width: 100%;
+  min-height: 80vh;
+}
+
+.searchPageTitle2 {
+  color: #343863;
+}

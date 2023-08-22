@@ -31,7 +31,6 @@ const FormLogin = () => {
   }
 
   const onChange = (e) => {
-    console.log('esto es name ', e.target.name)
     if (warningUsername && e.target.name === 'Username') {
       setWarningUsername(false)
     }

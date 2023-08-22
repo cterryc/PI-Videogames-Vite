@@ -9,7 +9,6 @@ import Windows from '../../../assets/windows'
 import Xbox from '../../../assets/xbox'
 
 const Platforms = (props) => {
-  console.log(props.platforms)
   const genres = {
     android: <Android />,
     apple: <Apple />,

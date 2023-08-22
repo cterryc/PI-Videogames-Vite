@@ -17,7 +17,6 @@ const Details = () => {
     dispatch(fetchId(id))
     dispatch(fetchScreenShots(id))
   }, [])
-  console.log(gameDetails)
   let description
   if (gameDetails.description) {
     if (gameDetails.description.length > 1000) {

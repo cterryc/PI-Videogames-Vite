@@ -1,11 +1,14 @@
 import { imagenDeRespaldo, urlMedia } from '../../../redux/editable-stuff/editableConfig'
 import './card.css'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 
 const Card = ({ game }) => {
+  const location = useLocation()
+  const { nameGame } = useParams()
+
   // console.log(game)
   const genres = []
-  game.genres.forEach(ele => {
+  game.genres?.forEach(ele => {
     if (genres.length < 2) {
       genres.push(ele.name)
     } else if (genres.length === 2) {
@@ -17,12 +20,37 @@ const Card = ({ game }) => {
     name = name.substring(0, 30) + '...'
   }
 
-  // todo lo de abajo es para reducir el tamaño de las imagenes provenientes de la API
-  // añadiendo "crop/600/400"
-  const url = game.background_image || 'no hay imagen'// si no existe añadimos un string para q no de error
-  const penultimaBarra = url.lastIndexOf('/', url.lastIndexOf('/') - 1) // Encuentra la posición de la penúltima "/"
-  const parteDeseada = url.substring(penultimaBarra) // extrae la parte deseada
-  const finalUrl = urlMedia + parteDeseada // añade la parte deseada a la url
+  let finalUrl
+
+  if (location.pathname === `/search/${nameGame}`) {
+    if (game.background_image?.includes('/screenshots/')) {
+      // todo lo de abajo es para reducir el tamaño de las imagenes provenientes de la API
+      // añadiendo "crop/600/400"
+      const url = game.background_image || 'no hay imagen'// si no existe añadimos un string para q no de error
+      const penultimaBarra = url.lastIndexOf('/', url.lastIndexOf('/') - 1) // Encuentra la posición de la penúltima "/"
+      const parteDeseada = url.substring(penultimaBarra) // extrae la parte deseada
+      finalUrl = 'https://media.rawg.io/media/crop/600/400/screenshots' + parteDeseada // añade la parte deseada a la url
+    } else {
+      const url = game.background_image || 'no hay imagen'// si no existe añadimos un string para q no de error
+      const penultimaBarra = url.lastIndexOf('/', url.lastIndexOf('/') - 1) // Encuentra la posición de la penúltima "/"
+      const parteDeseada = url.substring(penultimaBarra) // extrae la parte deseada
+      finalUrl = urlMedia + parteDeseada // añade la parte deseada a la url
+    }
+  } else {
+    if (game.background_image?.includes('/screenshots/')) {
+      // todo lo de abajo es para reducir el tamaño de las imagenes provenientes de la API
+      // añadiendo "crop/600/400"
+      const url = game.background_image || 'no hay imagen'// si no existe añadimos un string para q no de error
+      const penultimaBarra = url.lastIndexOf('/', url.lastIndexOf('/') - 1) // Encuentra la posición de la penúltima "/"
+      const parteDeseada = url.substring(penultimaBarra) // extrae la parte deseada
+      finalUrl = 'https://media.rawg.io/media/crop/600/400/screenshots' + parteDeseada // añade la parte deseada a la url
+    } else {
+      const url = game.background_image || 'no hay imagen'// si no existe añadimos un string para q no de error
+      const penultimaBarra = url.lastIndexOf('/', url.lastIndexOf('/') - 1) // Encuentra la posición de la penúltima "/"
+      const parteDeseada = url.substring(penultimaBarra) // extrae la parte deseada
+      finalUrl = urlMedia + parteDeseada // añade la parte deseada a la url
+    }
+  }
 
   return (
     <div className='cardBackgound'>
@@ -36,7 +64,7 @@ const Card = ({ game }) => {
           />
           <span>🎮{game.name}</span>
           <span>⭐{game.rating}</span>
-          <span>{genres.join(', ')}</span>
+          <span>{genres?.join(', ')}</span>
         </div>
       </Link>
     </div>

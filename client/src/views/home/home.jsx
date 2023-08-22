@@ -9,22 +9,19 @@ import { useNavigate, useParams } from 'react-router-dom'
 const Home = () => {
   const { page } = useParams()
   const navigate = useNavigate()
-  const loading = useSelector(state => state.videogame.searchpagestate)
+  const { searchpagestate, videogamesFromApi } = useSelector(state => state.videogame)
   useEffect(() => {
     if (page > 7 || isNaN(page)) {
       return navigate('/error')
     }
-  }, [])
-
-  const videogamesFromApi = useSelector(state => state.videogame)
-  const dispatch = useDispatch()
-  useEffect(() => {
-    if (videogamesFromApi.videogamesFromApi.length === 0) {
+    if (videogamesFromApi.length === 0) {
       dispatch(fetchVideogames())
     }
   }, [])
 
-  if (loading) {
+  const dispatch = useDispatch()
+
+  if (searchpagestate) {
     return (
       <div className='loadingContainer'>
         <div className='lds-facebook'><div /><div /><div /></div>
@@ -33,7 +30,7 @@ const Home = () => {
   }
   return (
     <div className='home'>
-      <Filters />
+      <Filters videogamesFromApi={videogamesFromApi} />
       {/* <div>{videogamesFromApi.videogamesFromApi[3] && videogamesFromApi.videogamesFromApi[3].name}</div> */}
       <Pagination />
     </div>
