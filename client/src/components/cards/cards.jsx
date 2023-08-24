@@ -1,11 +1,19 @@
 import Card from './card/card'
 import './cards.css'
 
-const Cards = ({ games }) => {
+const Cards = ({ games, name }) => {
   // console.log(games)
   if (typeof games === 'string') {
     return (
-      <div>Error Server</div>
+      <div className='warningSearch'>
+        <h1 className='warningH1'>Error Server</h1>
+      </div>
+    )
+  } else if (!games.length) {
+    return (
+      <div className='warningSearch'>
+        <h1 className='warningH1'>"Game with the name '{name}' not found."</h1>
+      </div>
     )
   } else {
     return (

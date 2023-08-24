@@ -17,7 +17,12 @@ const Pagination = () => {
   useEffect(() => {
     navigate(`/home/${currentPage}`)
   }, [currentPage])
-
+  useEffect(() => {
+    if (page !== currentPage) {
+      navigate(`/home/${page}`)
+      setCurrentPage(page)
+    }
+  }, [page])
   // me devuelve el indice del ultimo juego que puede ser 15, 30, 45 ...etc. de 15 en 15
   const indexOfLastItem = currentPage * itemsPerPage
 

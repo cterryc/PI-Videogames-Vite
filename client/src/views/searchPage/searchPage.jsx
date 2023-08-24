@@ -30,7 +30,7 @@ const SearchPage = () => {
     <div className='searchPage'>
       <Filters />
       {nameGame && <h1 className='searchPageTitle2'>🎮 Results for: {nameGame} 🎮</h1>}
-      <Cards games={firstFifteenElements} />
+      <Cards games={firstFifteenElements} name={nameGame && nameGame} />
     </div>
   )
 }
