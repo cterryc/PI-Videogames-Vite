@@ -7,7 +7,7 @@ const initialState = {
   platforms: [],
   searchGames: [],
   searchpagestate: false,
-  filterState: [],
+  filter: [],
   gameDetails: {},
   screenShots: [],
   actualSearch: ''
@@ -65,6 +65,9 @@ export const videogamesSlice = createSlice({
     },
     addReplaceVideogamesFromApi: (state, action) => {
       state.videogamesFromApi = action.payload
+    },
+    addFilter: (state, action) => {
+      state.filter = action.payload
     }
   },
   extraReducers: (builder) => {
@@ -110,5 +113,5 @@ export const videogamesSlice = createSlice({
   }
 })
 
-export const { addActualSearch } = videogamesSlice.actions
+export const { addActualSearch, addFilter } = videogamesSlice.actions
 export default videogamesSlice.reducer

@@ -9,7 +9,7 @@ import ArrowRight from '../../assets/arrow-right'
 const itemsPerPage = 15
 
 const Pagination = () => {
-  const allGames = useSelector((state) => state.videogame.videogamesFromApi)
+  const { videogamesFromApi, filter } = useSelector((state) => state.videogame)
   const { page } = useParams()
   const [currentPage, setCurrentPage] = useState(page || 1)
   const navigate = useNavigate()
@@ -29,14 +29,25 @@ const Pagination = () => {
   // me devuelve el indice del primer juego iniciando del 0, 15, 30 ...etc. de 15 en 15
   const indexOfFirstItem = indexOfLastItem - itemsPerPage
 
-  // me devuelve un array con los "juegos" que quiero mostrar en la pagina actual
-  // indexOfFirstItem y indexOfLastItem tomaran valores como => (0, 15) ó (15, 30) ó (30, 45)
-  const currentGames = allGames.slice(indexOfFirstItem, indexOfLastItem)
+  let currentGames
+  let totalPages
 
-  // me devuelve el numero total de botones que necesito
-  const totalPages = Math.ceil(allGames.length / itemsPerPage)
+  if (filter.length) {
+    // me devuelve un array con los "juegos" que quiero mostrar en la pagina actual
+    // indexOfFirstItem y indexOfLastItem tomaran valores como => (0, 15) ó (15, 30) ó (30, 45)
+    currentGames = filter.slice(indexOfFirstItem, indexOfLastItem)
 
-  // cuando cambie de pagina, me actualizo el estado de la pagina actual
+    // me devuelve el numero total de botones que necesito
+    totalPages = Math.ceil(filter.length / itemsPerPage)
+  } else {
+    // me devuelve un array con los "juegos" que quiero mostrar en la pagina actual
+    // indexOfFirstItem y indexOfLastItem tomaran valores como => (0, 15) ó (15, 30) ó (30, 45)
+    currentGames = videogamesFromApi.slice(indexOfFirstItem, indexOfLastItem)
+
+    // me devuelve el numero total de botones que necesito
+    totalPages = Math.ceil(videogamesFromApi.length / itemsPerPage)
+  }
+
   const handlePageChange = (pageNumber, e) => {
     setCurrentPage(pageNumber)
   }

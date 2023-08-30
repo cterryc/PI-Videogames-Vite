@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import Filters from '../../components/filters/filters'
 import './home.css'
 import { useEffect } from 'react'
-import { fetchVideogames } from '../../redux/videogameSlice/slice'
+import { addFilter, fetchVideogames } from '../../redux/videogameSlice/slice'
 import Pagination from '../../components/pagination/pagination'
 import { useNavigate, useParams } from 'react-router-dom'
 
@@ -10,6 +10,7 @@ const Home = () => {
   const { page } = useParams()
   const navigate = useNavigate()
   const { searchpagestate, videogamesFromApi } = useSelector(state => state.videogame)
+  const dispatch = useDispatch()
   useEffect(() => {
     if (page > 7 || isNaN(page)) {
       return navigate('/error')
@@ -17,9 +18,8 @@ const Home = () => {
     if (videogamesFromApi.length === 0) {
       dispatch(fetchVideogames())
     }
+    dispatch(addFilter([]))
   }, [])
-
-  const dispatch = useDispatch()
 
   if (searchpagestate) {
     return (

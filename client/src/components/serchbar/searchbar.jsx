@@ -1,12 +1,15 @@
+import { useDispatch } from 'react-redux'
 import Lupa from '../../assets/lupa'
 import './searchbar.css'
 import { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { addFilter } from '../../redux/videogameSlice/slice'
 
 const SearchBar = () => {
   const [name, setname] = useState('')
   const navigate = useNavigate()
   const location = useLocation()
+  const dispatch = useDispatch()
 
   const handleOnChange = (e) => {
     const value = e.target.value
@@ -15,6 +18,7 @@ const SearchBar = () => {
 
   const handleOnClick = () => {
     if (name !== '') {
+      dispatch(addFilter([]))
       // dispatch(fetchSearch(name))
       if (location.pathname !== '/search') {
         return navigate(`/search/${name}`)
@@ -29,6 +33,7 @@ const SearchBar = () => {
   const handleOnKeyDown = (e) => {
     if (name !== '') {
       if (e.key === 'Enter') {
+        dispatch(addFilter([]))
         // dispatch(fetchSearch(name))
         if (location.pathname !== '/search') {
           return navigate(`/search/${name}`)

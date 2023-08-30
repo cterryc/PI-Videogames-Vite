@@ -7,7 +7,7 @@ import { useEffect } from 'react'
 import { addActualSearch, fetchSearch } from '../../redux/videogameSlice/slice'
 
 const SearchPage = () => {
-  const { searchGames, searchpagestate, actualSearch } = useSelector(state => state.videogame)
+  const { searchGames, searchpagestate, actualSearch, filter } = useSelector(state => state.videogame)
   const { nameGame } = useParams()
   const dispatch = useDispatch()
   useEffect(() => {
@@ -16,7 +16,12 @@ const SearchPage = () => {
       dispatch(addActualSearch(nameGame))
     }
   }, [nameGame])
-  const firstFifteenElements = searchGames?.slice(0, 15)
+  let firstFifteenElements
+  if (filter?.length) {
+    firstFifteenElements = filter?.slice(0, 15)
+  } else {
+    firstFifteenElements = searchGames?.slice(0, 15)
+  }
 
   if (searchpagestate) {
     return (
