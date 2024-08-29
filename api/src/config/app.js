@@ -6,6 +6,7 @@ import genres from '../routes/genres.routes.js'
 import screenShots from '../routes/screenshots.routes.js'
 import videogame from '../routes/videogame.routes.js'
 import videogames from '../routes/videogames.routes.js'
+import home from '../routes/home.routes.js'
 // importar las rutas arriba.
 
 const SERVER = express()
@@ -32,9 +33,7 @@ SERVER.use('/genres', genres)
 SERVER.use('/screenshots', screenShots)
 SERVER.use('/videogame', videogame)
 SERVER.use('/videogames', videogames)
-SERVER.use('/', (req, res) => {
-  res.status(200).send({ hi: 'welcome' })
-})
+SERVER.use('/', home)
 // Usar rutas importadas arriba:.
 
 // Captura de Errores
