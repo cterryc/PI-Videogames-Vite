@@ -19,7 +19,10 @@ SERVER.use(cors())
 SERVER.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*') // ! se puede cambiar  "*" para habilitar todos los puertos y evitar problemas de CORS
   res.header('Access-Control-Allow-Credentials', 'true')
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  )
   res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE')
   next()
 })
@@ -29,6 +32,9 @@ SERVER.use('/genres', genres)
 SERVER.use('/screenshots', screenShots)
 SERVER.use('/videogame', videogame)
 SERVER.use('/videogames', videogames)
+SERVER.use('/', (req, res) => {
+  res.status(200).send({ hi: 'welcome' })
+})
 // Usar rutas importadas arriba:.
 
 // Captura de Errores

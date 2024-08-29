@@ -16,10 +16,10 @@ const NavBar = () => {
             <div className='divIntoNavLink'>VIDEOGAMES</div>
           </NavLink>
           <NavLink to='/creategame' className='navLink'>
-            <div className='divIntoNavLink'>CREATE GAME</div>
+            <div className='divIntoNavLink'>ADD GAME</div>
           </NavLink>
           <NavLink to='/about' className='navLink'>
-            <div className='divIntoNavLink'>ABOUT</div>
+            <div className='divIntoNavLink'>ABOUT ME</div>
           </NavLink>
           <Link to='/' className='navLink'>
             <div className='divButtonsContainerNav'>
