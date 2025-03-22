@@ -9,7 +9,9 @@ import { useNavigate, useParams } from 'react-router-dom'
 const Home = () => {
   const { page } = useParams()
   const navigate = useNavigate()
-  const { searchpagestate, videogamesFromApi } = useSelector(state => state.videogame)
+  const { searchpagestate, videogamesFromApi } = useSelector(
+    (state) => state.videogame
+  )
   const dispatch = useDispatch()
   useEffect(() => {
     if (page > 7 || isNaN(page)) {
@@ -24,14 +26,17 @@ const Home = () => {
   if (searchpagestate) {
     return (
       <div className='loadingContainer'>
-        <div className='lds-facebook'><div /><div /><div /></div>
+        <div className='lds-facebook'>
+          <div />
+          <div />
+          <div />
+        </div>
       </div>
     )
   }
   return (
     <div className='home'>
       <Filters videogamesFromApi={videogamesFromApi} />
-      {/* <div>{videogamesFromApi.videogamesFromApi[3] && videogamesFromApi.videogamesFromApi[3].name}</div> */}
       <Pagination />
     </div>
   )
